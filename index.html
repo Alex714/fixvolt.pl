@@ -1,73 +1,97 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIXVOLT | Profesjonalny Serwis Elektroniki i Automatyki</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>FIXVOLT | Profesjonalny Serwis Elektroniki</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --accent: #ff5f00; --bg: #0d1117; --card: #161b22; --text: #c9d1d9; }
-        body { background: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; margin: 0; line-height: 1.6; }
-        header { padding: 100px 20px; text-align: center; background: radial-gradient(circle at center, #1a1b26 0%, var(--bg) 100%); border-bottom: 1px solid #30363d; }
-        .hero-tag { color: var(--accent); font-weight: bold; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
-        h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; margin: 10px 0; color: #fff; }
-        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .card { background: var(--card); padding: 40px; border: 1px solid #30363d; border-radius: 8px; transition: 0.3s ease; }
-        .card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .card h2 { color: #fff; font-size: 1.5rem; margin-top: 0; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; }
-        .card p { margin-top: 20px; font-size: 0.95rem; }
-        .brands-list { font-size: 0.8rem; color: #8b949e; margin-top: 20px; font-style: italic; }
-        .cta { text-align: center; padding: 80px 20px; background: #161b22; margin-top: 50px; }
-        .btn { background: var(--accent); color: #fff; padding: 20px 50px; text-decoration: none; font-weight: 800; border-radius: 4px; display: inline-block; transition: 0.3s; text-transform: uppercase; }
-        .btn:hover { background: #fff; color: var(--accent); box-shadow: 0 0 25px var(--accent); }
-        footer { text-align: center; padding: 40px; color: #484f58; font-size: 0.85rem; }
+        :root { --primary: #0071e3; --accent: #ff6b00; --text: #1d1d1f; --bg: #f5f5f7; }
+        body { background-color: #fff; color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; -webkit-font-smoothing: antialiased; }
+        
+        nav { padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #d2d2d7; background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 100; }
+        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; }
+        .logo span { color: var(--accent); }
+
+        header { padding: 100px 5%; text-align: center; background: var(--bg); }
+        header h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 800; letter-spacing: -2px; margin: 0 0 20px 0; }
+        header p { font-size: 1.25rem; color: #86868b; max-width: 700px; margin: 0 auto; }
+
+        .container { max-width: 1200px; margin: 80px auto; padding: 0 20px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .card { background: #fff; padding: 40px; border-radius: 24px; border: 1px solid #d2d2d7; transition: all 0.3s ease; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-color: var(--primary); }
+        .card h2 { font-size: 1.5rem; margin-top: 0; color: var(--primary); }
+        .card p { color: #424245; font-size: 1rem; line-height: 1.5; }
+
+        .brands { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+        .brand-tag { background: #f5f5f7; padding: 5px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; color: #86868b; }
+
+        .cta-section { background: var(--text); color: #fff; padding: 80px 5%; border-radius: 30px; margin: 40px 20px; text-align: center; }
+        .btn { background: var(--primary); color: #fff; padding: 18px 40px; border-radius: 40px; text-decoration: none; font-weight: 600; display: inline-block; transition: 0.3s; }
+        .btn:hover { background: #0077ed; transform: scale(1.05); }
+
+        footer { text-align: center; padding: 40px; color: #86868b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
+<nav>
+    <div class="logo">FIXVOLT<span>.</span>PL</div>
+    <div>Warszawa</div>
+</nav>
+
 <header>
-    <div class="hero-tag">Specjalistyczna Inżynieria Elektroniczna</div>
-    <h1>FIXVOLT<span style="color:var(--accent)">.</span>PL</h1>
-    <p>Ekspercka naprawa sterowników pieców, inwerterów oraz precyzyjne mikrolutowanie BGA/SMD.</p>
+    <p style="color:var(--accent); font-weight: 600; margin-bottom: 10px;">Inżynieria na najwyższym poziomie</p>
+    <h1>Precyzja w każdym detalu.</h1>
+    <p>Naprawiamy zaawansowaną elektronikę, której inni nie potrafią uratować. Od sterowników kotłów po systemy mocy.</p>
 </header>
 
 <div class="container">
     <div class="grid">
         <div class="card">
             <h2>Automatyka Grzewcza</h2>
-            <p>Naprawa płyt głównych kotłów gazowych i olejowych. Skutecznie eliminujemy błędy zapłonu, komunikacji oraz awarie sterowania pompami i wentylatorem.</p>
-            <div class="brands-list">
-                Viessmann • Junkers • Vaillant • Buderus • Termet • De Dietrich • Wolf
+            <p>Specjalistyczna naprawa płyt sterujących kotłów gazowych. Gwarantujemy przywrócenie sprawności bez konieczności kupna drogiego modułu.</p>
+            <div class="brands">
+                <span class="brand-tag">Viessmann</span>
+                <span class="brand-tag">Vaillant</span>
+                <span class="brand-tag">Buderus</span>
+                <span class="brand-tag">Junkers</span>
+                <span class="brand-tag">Termet</span>
             </div>
         </div>
 
         <div class="card">
             <h2>Elektronika Mocy</h2>
-            <p>Profesjonalny serwis inwerterów fotowoltaicznych, kontrolerów do pojazdów elektrycznych (EV, hulajnogi), systemów BMS oraz zasilaczy przemysłowych.</p>
-            <div class="brands-list">
-                Naprawa układów IGBT, MOSFET oraz diagnostyka wysokoprądowa.
+            <p>Serwis inwerterów fotowoltaicznych, kontrolerów pojazdów elektrycznych oraz systemów BMS. Diagnozujemy usterki na poziomie komponentów.</p>
+            <div class="brands">
+                <span class="brand-tag">IGBT/Mosfet</span>
+                <span class="brand-tag">Inwertery PV</span>
+                <span class="brand-tag">BMS</span>
             </div>
         </div>
 
         <div class="card">
             <h2>Mikrolutowanie</h2>
-            <p>Zaawansowane prace pod mikroskopem: regeneracja zerwanych ścieżek i padów, wymiana skomplikowanych układów scalonych BGA, SMD oraz naprawa elektroniki po zalaniu.</p>
-            <div class="brands-list">
-                Precyzja naprawy rzędu 0.1mm.
+            <p>Praca pod mikroskopem przy odzyskiwaniu przerwanych ścieżek i wymianie układów scalonych BGA. Precyzja wymagana w nowoczesnej automatyce.</p>
+            <div class="brands">
+                <span class="brand-tag">Naprawa padów</span>
+                <span class="brand-tag">BGA/SMD</span>
             </div>
         </div>
     </div>
 </div>
 
-<section class="cta">
-    <h2>Masz problem z elektroniką?</h2>
-    <p style="margin-bottom: 30px;">Zamiast wymieniać całe moduły na nowe – napraw je u nas i zaoszczędź.</p>
-    <a href="mailto:kontakt@fixvolt.pl" class="btn">Skontaktuj się z technikiem</a>
+<section class="cta-section">
+    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Twój sprzęt zasługuje na drugie życie.</h2>
+    <p style="color: #a1a1a6; margin-bottom: 40px;">Szybka diagnoza i fachowe doradztwo techniczne.</p>
+    <a href="mailto:kontakt@fixvolt.pl" class="btn">Skontaktuj się teraz</a>
 </section>
 
 <footer>
-    &copy; 2026 FIXVOLT.PL | Warszawa | Serwis Elektroniki Przemysłowej i Użytkowej
+    &copy; 2026 FIXVOLT.PL | Warszawa | Inżynieria Elektroniki
 </footer>
 
 </body>
