@@ -3,142 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FixVolt.pl | Zaawansowana Mikrolutowanie i Naprawa Elektroniki</title>
+    <title>FIXVOLT | Profesjonalny Serwis Elektroniki i Automatyki</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --accent: #00d4ff; /* Технологичный голубой */
-            --bg: #0a0b10;
-            --card-bg: #161b22;
-            --text: #e6edf3;
-        }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            margin: 0;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-        header {
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: radial-gradient(circle at center, #1a2a44 0%, #0a0b10 100%);
-            text-align: center;
-            border-bottom: 1px solid #30363d;
-        }
-        .logo-text {
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: -2px;
-            margin: 0;
-            background: linear-gradient(90deg, #fff, var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .specialty {
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
-        .container {
-            max-width: 1000px;
-            margin: -50px auto 50px;
-            padding: 0 20px;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            background: var(--card-bg);
-            border: 1px solid #30363d;
-            padding: 30px;
-            border-radius: 12px;
-            transition: transform 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-        .card h3 {
-            color: var(--accent);
-            margin-top: 0;
-        }
-        .micro-scope-badge {
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            text-align: center;
-            font-weight: bold;
-        }
-        .contact-btn {
-            display: inline-block;
-            background: var(--accent);
-            color: #000;
-            text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: opacity 0.2s;
-        }
-        .contact-btn:hover { opacity: 0.9; }
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: #8b949e;
-            font-size: 0.8rem;
-        }
-        @media (max-width: 600px) {
-            .logo-text { font-size: 2.5rem; }
-        }
+        :root { --accent: #ff5f00; --bg: #0d1117; --card: #161b22; --text: #c9d1d9; }
+        body { background: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; margin: 0; line-height: 1.6; }
+        header { padding: 100px 20px; text-align: center; background: radial-gradient(circle at center, #1a1b26 0%, var(--bg) 100%); border-bottom: 1px solid #30363d; }
+        .hero-tag { color: var(--accent); font-weight: bold; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
+        h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; margin: 10px 0; color: #fff; }
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .card { background: var(--card); padding: 40px; border: 1px solid #30363d; border-radius: 8px; transition: 0.3s ease; }
+        .card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .card h2 { color: #fff; font-size: 1.5rem; margin-top: 0; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; }
+        .card p { margin-top: 20px; font-size: 0.95rem; }
+        .brands-list { font-size: 0.8rem; color: #8b949e; margin-top: 20px; font-style: italic; }
+        .cta { text-align: center; padding: 80px 20px; background: #161b22; margin-top: 50px; }
+        .btn { background: var(--accent); color: #fff; padding: 20px 50px; text-decoration: none; font-weight: 800; border-radius: 4px; display: inline-block; transition: 0.3s; text-transform: uppercase; }
+        .btn:hover { background: #fff; color: var(--accent); box-shadow: 0 0 25px var(--accent); }
+        footer { text-align: center; padding: 40px; color: #484f58; font-size: 0.85rem; }
     </style>
 </head>
 <body>
 
 <header>
-    <p class="specialty">Expert Micro-Soldering</p>
-    <h1 class="logo-text">FIXVOLT.PL</h1>
-    <p>Precyzyjna naprawa elektroniki pod mikroskopem</p>
+    <div class="hero-tag">Specjalistyczna Inżynieria Elektroniczna</div>
+    <h1>FIXVOLT<span style="color:var(--accent)">.</span>PL</h1>
+    <p>Ekspercka naprawa sterowników pieców, inwerterów oraz precyzyjne mikrolutowanie BGA/SMD.</p>
 </header>
 
 <div class="container">
-    <div class="micro-scope-badge">
-        🔬 Specjalizacja: Lutowanie układów BGA, SMD oraz regeneracja ścieżek pod mikroskopem.
-    </div>
-
     <div class="grid">
         <div class="card">
-            <h3>Mikrolutowanie</h3>
-            <p>Naprawa uszkodzonych złącz, wymiana układów scalonych (IC) oraz precyzyjne operacje na płytach głównych smartfonów i laptopów.</p>
+            <h2>Automatyka Grzewcza</h2>
+            <p>Naprawa płyt głównych kotłów gazowych i olejowych. Skutecznie eliminujemy błędy zapłonu, komunikacji oraz awarie sterowania pompami i wentylatorem.</p>
+            <div class="brands-list">
+                Viessmann • Junkers • Vaillant • Buderus • Termet • De Dietrich • Wolf
+            </div>
         </div>
-        <div class="card">
-            <h3>Diagnostyka</h3>
-            <p>Wyszukiwanie zwarć, pomiary napięć i analiza schematów. Naprawiamy to, co inni spisali na straty.</p>
-        </div>
-        <div class="card">
-            <h3>Odzyskiwanie</h3>
-            <p>Ratowanie urządzeń po zalaniu oraz przywracanie sprawności ścieżkom o grubości włosa.</p>
-        </div>
-    </div>
 
-    <div style="text-align: center; margin-top: 50px;">
-        <h2>Potrzebujesz profesjonalnej naprawy?</h2>
-        <p>Zapraszamy do kontaktu. Twoja elektronika w rękach eksperta.</p>
-        <a href="mailto:kontakt@fixvolt.pl" class="contact-btn">NAPISZ DO NAS</a>
+        <div class="card">
+            <h2>Elektronika Mocy</h2>
+            <p>Profesjonalny serwis inwerterów fotowoltaicznych, kontrolerów do pojazdów elektrycznych (EV, hulajnogi), systemów BMS oraz zasilaczy przemysłowych.</p>
+            <div class="brands-list">
+                Naprawa układów IGBT, MOSFET oraz diagnostyka wysokoprądowa.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Mikrolutowanie</h2>
+            <p>Zaawansowane prace pod mikroskopem: regeneracja zerwanych ścieżek i padów, wymiana skomplikowanych układów scalonych BGA, SMD oraz naprawa elektroniki po zalaniu.</p>
+            <div class="brands-list">
+                Precyzja naprawy rzędu 0.1mm.
+            </div>
+        </div>
     </div>
 </div>
 
+<section class="cta">
+    <h2>Masz problem z elektroniką?</h2>
+    <p style="margin-bottom: 30px;">Zamiast wymieniać całe moduły na nowe – napraw je u nas i zaoszczędź.</p>
+    <a href="mailto:kontakt@fixvolt.pl" class="btn">Skontaktuj się z technikiem</a>
+</section>
+
 <footer>
-    &copy; 2026 FixVolt.pl | Precision Electronics Service | Warsaw, Poland
+    &copy; 2026 FIXVOLT.PL | Warszawa | Serwis Elektroniki Przemysłowej i Użytkowej
 </footer>
 
 </body>
