@@ -3,94 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FixVolt Wrocław | Kompleksowy Serwis Elektroniki | 519 842 792</title>
-    <meta name="description" content="FixVolt Wrocław - Naprawa sterowników ECU, inwerterów PV, MacBooków, AGD i zabawek. Ponad 20 lat doświadczenia. Dla nas nie ma rzeczy niemożliwych.">
+    <title>FixVolt Wrocław | Serwis Elektroniki | 519 842 792</title>
+    <meta name="description" content="Profesjonalna naprawa elektroniki we Wrocławiu. Auto sterowniki, inwertery PV, MacBooki, AGD i zabawki. Nie wyrzucaj — naprawimy to!">
     <style>
-        :root { --gold: #ffcc00; --dark: #0a0a0a; --card: #151515; --gray: #888; }
-        body { font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; background: var(--dark); color: #fff; line-height: 1.6; }
+        :root { --gold: #ffcc00; --gold-dark: #ccaa00; --dark: #080808; --card-bg: #111; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; margin: 0; background: var(--dark); color: #fff; line-height: 1.6; -webkit-font-smoothing: antialiased; }
         
-        .hero { padding: 80px 20px; border-bottom: 4px solid var(--gold); background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center; text-align: center; }
-        .gold-tag { color: var(--gold); text-transform: uppercase; font-weight: 900; letter-spacing: 3px; font-size: 14px; margin-bottom: 10px; display: block; }
-        .hero h1 { font-size: clamp(26px, 5vw, 42px); margin: 10px 0; letter-spacing: -1px; line-height: 1.2; }
-        
-        .container { max-width: 1200px; margin: -50px auto 0; padding: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        
-        .card { background: var(--card); padding: 30px; border-radius: 15px; border: 1px solid #222; transition: 0.3s; position: relative; }
-        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .card h2 { color: var(--gold); margin-top: 0; font-size: 20px; text-transform: uppercase; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        .card ul { padding: 0; list-style: none; margin-top: 15px; }
-        .card li { margin-bottom: 10px; display: flex; align-items: flex-start; color: #ddd; font-size: 15px; }
-        .card li::before { content: '→'; color: var(--gold); margin-right: 10px; font-weight: bold; }
-        
-        .cta-box { margin-top: 50px; background: var(--gold); color: #000; padding: 45px 20px; border-radius: 25px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-        .btn-main { display: inline-block; background: #000; color: var(--gold); padding: 18px 40px; border-radius: 50px; font-size: 26px; font-weight: 900; text-decoration: none; transition: 0.3s; margin: 10px; }
-        .btn-main:hover { transform: scale(1.05); }
-        
-        .sticky-bar { position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--gold); color: #000; padding: 15px; border-radius: 50px; font-weight: 900; text-decoration: none; text-align: center; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); display: none; }
-        
-        @media (max-width: 768px) { .sticky-bar { display: block; } .hero { padding: 50px 20px; } .container { margin-top: 20px; } }
+        /* Background Decoration */
+        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 10% 20%, rgba(255, 204, 0, 0.05) 0%, transparent 40%); z-index: -1; }
+
+        header { padding: 80px 20px 60px; text-align: center; border-bottom: 1px solid #222; background: linear-gradient(to bottom, #000, var(--dark)); }
+        .logo-top { font-size: 14px; color: var(--gold); font-weight: 800; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 15px; display: block; }
+        h1 { font-size: clamp(32px, 6vw, 52px); margin: 0; font-weight: 900; letter-spacing: -1px; }
+        .slogan { font-size: clamp(18px, 4vw, 26px); color: var(--gold); margin: 15px 0 0; font-weight: 800; letter-spacing: 1px; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        .intro-text { text-align: center; color: #888; max-width: 600px; margin: 0 auto 50px; font-size: 18px; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .card { background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid #222; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; }
+        .card:hover { border-color: var(--gold); transform: translateY(-5px); background: #161616; }
+        .card h2 { color: var(--gold); font-size: 20px; margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        .card ul { padding: 0; list-style: none; margin: 20px 0 0; }
+        .card li { margin-bottom: 10px; color: #ccc; font-size: 15px; padding-left: 20px; position: relative; }
+        .card li::before { content: ""; position: absolute; left: 0; top: 8px; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+
+        .contact-section { margin-top: 60px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); color: #000; padding: 50px 20px; border-radius: 30px; text-align: center; }
+        .contact-section h2 { margin-top: 0; font-size: 28px; font-weight: 900; text-transform: uppercase; }
+        .phone-link { display: inline-block; background: #000; color: var(--gold); padding: 20px 45px; border-radius: 100px; font-size: clamp(24px, 5vw, 34px); font-weight: 900; text-decoration: none; margin: 20px 0; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .phone-link:hover { transform: scale(1.05); }
+        .whatsapp-btn { display: inline-block; color: #000; text-decoration: none; font-weight: 700; font-size: 16px; border-bottom: 2px solid #000; margin-top: 10px; }
+
+        .info-bar { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 30px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+        .info-bar span::before { content: "✓ "; color: #000; }
+
+        .footer-note { text-align: center; padding: 60px 20px; color: #333; font-size: 11px; letter-spacing: 1px; }
+
+        /* Mobile Fixes */
+        .sticky-action { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; background: var(--gold); color: #000; text-align: center; padding: 18px; border-radius: 100px; font-weight: 900; text-decoration: none; font-size: 20px; z-index: 1000; box-shadow: 0 15px 30px rgba(0,0,0,0.5); display: none; }
+
+        @media (max-width: 768px) {
+            .sticky-action { display: block; }
+            header { padding: 60px 20px 40px; }
+            .container { padding-bottom: 100px; }
+        }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <span class="gold-tag">FixVolt Wrocław</span>
-        <h1>NIE WYRZUCAJ — NAPRAWIMY TO.</h1>
-        <p>Od sterownika koparki po ulubioną zabawkę Twojego dziecka. <br>Ratujemy każdą elektronikę z pasją i precyzją.</p>
-    </section>
+    <header>
+        <span class="logo-top">FixVolt Wrocław</span>
+        <h1>SERWIS ELEKTRONIKI</h1>
+        <div class="slogan">NIE WYRZUCAJ — NAPRAWIMY TO.</div>
+    </header>
 
     <div class="container">
+        <p class="intro-text">Przywracamy sprawność urządzeniom, od których inni odsyłają z kwitkiem. Profesjonalna naprawa komponentowa i inżynierskie podejście.</p>
+        
         <div class="grid">
             <div class="card">
-                <h2>Elektronika Auto</h2>
+                <h2>Auto Elektronika</h2>
                 <ul>
                     <li>Sterowniki silnika (ECU), ABS, Airbag</li>
-                    <li>Klonowanie i programowanie modułów</li>
-                    <li>Elektronika pojazdów Hybrid / EV</li>
+                    <li>Programowanie i klonowanie modułów</li>
+                    <li>Elektronika pojazdów hybrydowych i EV</li>
                 </ul>
             </div>
-
             <div class="card">
-                <h2>OZE i Przemysł</h2>
+                <h2>Energia i Przemysł</h2>
                 <ul>
-                    <li>Inwertery PV (Huawei, Fronius, Sofar)</li>
-                    <li>Sterowniki maszyn i falowniki</li>
-                    <li>Systemy zasilania awaryjnego UPS</li>
+                    <li>Inwertery fotowoltaiczne (każda marka)</li>
+                    <li>Sterowniki maszyn, falowniki, HMI</li>
+                    <li>Zasilacze awaryjne UPS i banki energii</li>
                 </ul>
             </div>
-
             <div class="card">
-                <h2>MacBook & IT</h2>
+                <h2>MacBook & Laptopy</h2>
                 <ul>
-                    <li>Naprawa płyt głównych MacBook M1/M2/M3</li>
-                    <li>Odzyskiwanie danych (SSD, Pendrive)</li>
-                    <li>Zaawansowany serwis laptopów</li>
+                    <li>Naprawa płyt głównych MacBook (M1/M2/M3)</li>
+                    <li>Serwis po zalaniu i wymiana układów BGA</li>
+                    <li>Odzyskiwanie danych z martwych dysków</li>
                 </ul>
             </div>
-
             <div class="card">
                 <h2>Dom & Hobby</h2>
                 <ul>
-                    <li>Elektronika AGD (ekspresy, roboty, AGD)</li>
-                    <li><b>Zabawki interaktywne i drony</b></li>
-                    <li>Sprzęt Audio, Vintage i niestandardowy</li>
+                    <li>Ekspresy do kawy i roboty kuchenne</li>
+                    <li>Zabawki interaktywne, drony, audio</li>
+                    <li>Nietypowe gadżety i elektronika użytkowa</li>
                 </ul>
             </div>
         </div>
 
-        <div class="cta-box">
-            <h2 style="margin:0 0 20px 0;">MASZ COŚ DO NAPRAWY?</h2>
-            <a href="tel:+48519842792" class="btn-main">📞 519 842 792</a>
-            <p style="font-weight:bold; margin-top:15px;">📍 Wrocław • Szybka diagnoza • Solidny serwis</p>
-            <a href="https://wa.me/48519842792" style="color:#000; text-decoration:none; font-size:14px;">Kliknij tutaj, aby napisać na WhatsApp</a>
+        <div class="contact-section">
+            <h2>Masz awarię? Rozwiążemy ją.</h2>
+            <a href="tel:+48519842792" class="phone-link">519 842 792</a><br>
+            <a href="https://wa.me/48519842792" class="whatsapp-btn">Wyślij zdjęcie usterki przez WhatsApp →</a>
+            
+            <div class="info-bar">
+                <span>📍 Wrocław</span>
+                <span>Diagnoza 24h</span>
+                <span>Gwarancja</span>
+                <span>Faktura VAT</span>
+            </div>
         </div>
     </div>
 
-    <a href="tel:+48519842792" class="sticky-bar">📞 ZADZWOŃ: 519 842 792</a>
+    <a href="tel:+48519842792" class="sticky-action">📞 ZADZWOŃ TERAZ</a>
 
-    <footer style="text-align:center; padding:40px; color:#444; font-size:11px;">
-        &copy; 2026 FixVolt Wrocław. Naprawa elektroniki bez granic.
-    </footer>
+    <div class="footer-note">
+        FIXVOLT WROCŁAW &copy; 2026 | PROFESJONALNY SERWIS ELEKTRONIKI NA POZIOMIE KOMPONENTÓW
+    </div>
+
 </body>
 </html>
