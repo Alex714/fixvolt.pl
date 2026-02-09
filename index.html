@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIXVOLT | Serwis Elektroniki Przemysłowej</title>
+    <title>FIXVOLT | Profesjonalny Serwis Elektroniki i Elektryka Wrocław</title>
+    <meta name="description" content="FIXVOLT - Profesjonalny serwis elektroniki i elektryka we Wrocławiu. Naprawa Audio/Video Vintage (Sony), instalacje elektryczne, elektronika mocy. Szybka diagnoza, rzetelne wykonanie.">
+    <meta name="keywords" content="elektronika Wrocław, elektryk Wrocław, naprawa Sony, serwis RTV Wrocław, montaż gniazdek, instalacje elektryczne, naprawa wzmacniaczy, BGA Wrocław, Fixvolt">
+    <meta name="author" content="Fixvolt.pl">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.fixvolt.pl/">
+    <meta property="og:title" content="FIXVOLT | Serwis Elektroniki i Elektryka Wrocław">
+    <meta property="og:description" content="FIXVOLT - Profesjonalny serwis elektroniki i elektryka we Wrocławiu. Naprawa Audio/Video Vintage (Sony), instalacje elektryczne, elektronika mocy. Szybka diagnoza, rzetelne wykonanie.">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
     <style>
         :root { 
@@ -12,26 +20,35 @@
             --text: #1d1d1f; 
             --bg: #f5f5f7;
             --card-bg: rgba(255, 255, 255, 0.8);
+            --footer-bg: #1d1d1f;
         }
         
         * { box-sizing: border-box; }
-        body { background-color: #fff; color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; overflow-x: hidden; }
+        body { background-color: #fff; color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* Navigation: Apple-style blur */
+        /* Navigation */
         nav { 
             padding: 15px 5%; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            background: rgba(255,255,255,0.7); 
+            background: rgba(255,255,255,0.8); /* Более явный фон для навигации */
             backdrop-filter: saturate(180%) blur(20px); 
             position: sticky; 
             top: 0; 
             z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
         }
-        .logo { font-weight: 800; font-size: 1.4rem; letter-spacing: -1px; }
+        .logo { font-weight: 800; font-size: 1.4rem; letter-spacing: -1px; text-decoration: none; color: var(--text); }
         .logo span { color: var(--accent); }
+        .nav-links a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--primary); }
 
         /* Hero Section */
         header { 
@@ -52,7 +69,7 @@
         header h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; letter-spacing: -3px; margin: 0; line-height: 1.1; }
         header p { font-size: 1.3rem; color: #515154; max-width: 650px; margin: 25px auto; line-height: 1.6; }
 
-        /* Grid System */
+        /* Grid System & Cards */
         .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         
@@ -64,13 +81,16 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            display: flex; /* Flexbox для равномерной высоты содержимого */
+            flex-direction: column;
+            justify-content: space-between;
         }
         .card:hover { 
             transform: translateY(-10px) scale(1.02); 
             box-shadow: 0 30px 60px rgba(0,0,0,0.1); 
             border-color: var(--primary);
         }
-        .card h2 { font-size: 1.6rem; margin-top: 0; margin-bottom: 15px; }
+        .card h2 { font-size: 1.6rem; margin-top: 0; margin-bottom: 15px; color: var(--primary); }
         .card p { color: #6e6e73; line-height: 1.6; font-size: 1.05rem; }
 
         /* Tags */
@@ -87,115 +107,4 @@
         .step p { color: #a1a1a6; font-size: 0.95rem; }
 
         /* Buttons */
-        .cta-section { text-align: center; padding: 100px 5%; background: #000; color: #fff; border-radius: 40px; margin: 20px; }
-        .btn { 
-            background: var(--primary); 
-            color: #fff; 
-            padding: 20px 50px; 
-            border-radius: 40px; 
-            text-decoration: none; 
-            font-weight: 600; 
-            font-size: 1.1rem;
-            display: inline-block; 
-            transition: 0.3s; 
-            box-shadow: 0 10px 20px rgba(0, 113, 227, 0.3);
-        }
-        .btn:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(0, 113, 227, 0.5); }
-
-        footer { text-align: center; padding: 60px; color: #86868b; font-size: 0.9rem; border-top: 1px solid #f5f5f7; }
-        
-        @media (max-width: 768px) {
-            header { padding: 80px 5%; }
-            .process { padding: 40px 20px; }
-        }
-    </style>
-</head>
-<body>
-
-<nav>
-    <div class="logo">FIXVOLT<span>.</span>PL</div>
-    <div style="font-weight: 600; font-size: 0.9rem; opacity: 0.8;">📍 Warszawa, Polska</div>
-</nav>
-
-<header>
-    <div class="badge">Inżynieria i Pasja</div>
-    <h1>Ratujemy to, co dla innych<br>jest nie do naprawienia.</h1>
-    <p>Specjalistyczny serwis elektroniki mocy i automatyki. Od mikro-ścieżek po systemy sterowania przemysłowego.</p>
-    <a href="#contact" class="btn">Zleć naprawę</a>
-</header>
-
-<div class="container">
-    <div class="grid">
-        <div class="card">
-            <h2>Automatyka Grzewcza</h2>
-            <p>Ekspercka diagnostyka sterowników kotłów. Viessmann, Vaillant, Junkers. Naprawiamy błędy zapłonu, komunikacji i zasilania.</p>
-            <div class="brands">
-                <span class="brand-tag">LGM29</span>
-                <span class="brand-tag">VBC131</span>
-                <span class="brand-tag">Honeywell</span>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>Systemy PV i EV</h2>
-            <p>Serwis inwerterów fotowoltaicznych i ładowarek samochodowych. Wymiana modułów IGBT oraz regeneracja układów chłodzenia.</p>
-            <div class="brands">
-                <span class="brand-tag">Fronius</span>
-                <span class="brand-tag">SMA</span>
-                <span class="brand-tag">Tesla BMS</span>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>Laboratorium BGA</h2>
-            <p>Mikrolutowanie pod kontrolą cyfrową. Odzyskujemy połączenia pod procesorami i wymieniamy uszkodzone pamięci eMMC/NAND.</p>
-            <div class="brands">
-                <span class="brand-tag">Reballing</span>
-                <span class="brand-tag">0201 SMD</span>
-                <span class="brand-tag">X-Ray Check</span>
-            </div>
-        </div>
-    </div>
-
-    <div style="height: 80px;"></div>
-
-    <section class="process">
-        <h2 style="font-size: 2.5rem; margin-top:0;">Jak przebiega proces?</h2>
-        <div class="process-grid">
-            <div class="step">
-                <div class="step-num">01</div>
-                <h3>Dostarczenie</h3>
-                <p>Osobiscie w Warszawie lub wysyłkowo (InPost/DPD).</p>
-            </div>
-            <div class="step">
-                <div class="step-num">02</div>
-                <h3>Wycena</h3>
-                <p>Darmowa analiza usterki i kosztorys w 24h.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">03</div>
-                <h3>Naprawa</h3>
-                <p>Praca inżynierska z użyciem topowych komponentów.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">04</div>
-                <h3>Testy</h3>
-                <p>Weryfikacja pod obciążeniem i gwarancja 12 msc.</p>
-            </div>
-        </div>
-    </section>
-</div>
-
-<section class="cta-section" id="contact">
-    <h2 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 20px;">Gotowy na przywrócenie sprawności?</h2>
-    <p style="color: #a1a1a6; margin-bottom: 40px; font-size: 1.2rem;">Nie kupuj nowej płyty za 3000 zł. Napraw ją u nas.</p>
-    <a href="mailto:kontakt@fixvolt.pl" class="btn">Wyślij zapytanie teraz</a>
-    <p style="margin-top: 25px; font-size: 0.9rem; color: #6e6e73;">Odpowiadamy w ciągu 2 godzin</p>
-</section>
-
-<footer>
-    &copy; 2026 FIXVOLT.PL | Inżynieria Elektroniki Specjalistycznej | Warszawa
-</footer>
-
-</body>
-</html>
+        .cta-section { text-align: center; padding: 
