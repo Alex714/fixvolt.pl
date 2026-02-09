@@ -3,183 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIXVOLT | Profesjonalna Naprawa Elektroniki Wrocław | 512 792 248</title>
-    <meta name="description" content="Naprawa inwerterów PV, płyt HVAC i automatyki przemysłowej we Wrocławiu. Ekspresowy serwis 24h. Sprawdź fixvolt.pl">
+    <title>FIXVOLT | Profesjonalny Serwis Elektroniki Wrocław | fixvolt.pl</title>
+    <meta name="description" content="Naprawa inwerterów PV i płyt HVAC. Szybka diagnoza i gwarancja. Zadzwoń: 512 792 248.">
     
     <style>
-        :root { --p: #ff5f00; --bg: #050505; --s: #111; --t: #ffffff; }
-        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', -apple-system, sans-serif; }
+        :root { --p: #ff5f00; --bg: #000; --s: #0a0a0a; --t: #fff; }
+        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background: var(--bg); color: var(--t); line-height: 1.4; }
+
+        /* Фоновый эффект лаборатории */
+        body::before { content: ""; position: fixed; inset: 0; background: linear-gradient(rgba(255,95,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,95,0,0.03) 1px, transparent 1px); background-size: 50px 50px; z-index: -1; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        body { background: var(--bg); color: var(--t); line-height: 1.1; overflow-x: hidden; }
-        
-        /* Анимированный фон (Сетка) */
-        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background-image: radial-gradient(rgba(255, 95, 0, 0.1) 1px, transparent 1px); 
-            background-size: 30px 30px; z-index: -1; }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
-
-        /* Бегущая строка */
-        .ticker { background: var(--p); color: #000; padding: 10px 0; font-weight: 900; font-size: 0.8rem; overflow: hidden; white-space: nowrap; text-transform: uppercase; }
-        .ticker-wrap { display: inline-block; animation: ticker 30s linear infinite; }
-        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-
-        /* HEADER */
-        nav { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; background: rgba(5,5,5,0.95); backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid #222; }
-        .logo { font-size: 2rem; font-weight: 900; text-decoration: none; color: #fff; letter-spacing: -2px; }
+        /* Navbar */
+        nav { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; position: sticky; top:0; background: rgba(0,0,0,0.95); z-index: 1000; }
+        .logo { font-size: 2.2rem; font-weight: 900; text-decoration: none; color: #fff; letter-spacing: -2px; }
         .logo span { color: var(--p); }
-        .nav-call { background: var(--p); color: #000; padding: 12px 25px; border-radius: 2px; font-weight: 900; text-decoration: none; transition: 0.3s; }
+        .top-contact { text-align: right; }
+        .top-contact a { color: var(--p); text-decoration: none; font-weight: 900; font-size: 1.4rem; }
 
-        /* HERO */
-        .hero { padding: 100px 0 60px; }
-        .hero h1 { font-size: clamp(3.5rem, 15vw, 9rem); font-weight: 900; letter-spacing: -6px; margin-bottom: 30px; text-transform: uppercase; line-height: 0.8; }
-        .hero h1 span { color: var(--p); text-shadow: 0 0 30px rgba(255,95,0,0.5); }
-        .hero p { font-size: 1.5rem; color: #888; max-width: 650px; line-height: 1.4; border-left: 5px solid var(--p); padding-left: 30px; margin-bottom: 50px; }
+        /* Hero Section */
+        .hero { padding: 80px 0 40px; text-align: center; }
+        .hero h1 { font-size: clamp(2.5rem, 10vw, 5.5rem); font-weight: 900; text-transform: uppercase; line-height: 0.9; margin-bottom: 20px; }
+        .hero h1 span { color: var(--p); }
+        .hero p { font-size: 1.4rem; color: #888; max-width: 800px; margin: 0 auto 40px; }
 
-        /* ИИ ДИАГНОСТИКА */
-        .ai-grid { display: grid; grid-template-columns: 1fr 1.2fr; background: #0a0a0a; border: 1px solid #222; margin-bottom: 100px; }
-        .ai-sidebar { padding: 50px; border-right: 1px solid #222; }
-        .ai-sidebar h2 { font-size: 2.5rem; margin-bottom: 20px; letter-spacing: -2px; }
-        .ai-sidebar ul { list-style: none; color: #555; font-size: 0.9rem; }
-        .ai-sidebar li::before { content: "⚡ "; color: var(--p); }
+        /* Live Activity */
+        .live-panel { background: var(--s); border: 1px solid #222; padding: 20px; border-radius: 4px; margin-bottom: 40px; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
+        .stat-item { text-align: center; }
+        .stat-item span { display: block; color: var(--p); font-size: 1.5rem; font-weight: 900; }
+        .stat-item small { color: #555; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
 
-        .chat-container { background: #000; height: 500px; display: flex; flex-direction: column; }
-        #chat-flow { flex: 1; padding: 30px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
-        .msg { padding: 15px 20px; border-radius: 2px; max-width: 85%; font-size: 1rem; line-height: 1.5; }
-        .msg-ai { background: #111; border-left: 4px solid var(--p); align-self: flex-start; }
-        .msg-user { background: var(--p); color: #000; font-weight: 700; align-self: flex-end; }
-        
-        .chat-input { padding: 20px; display: flex; gap: 10px; border-top: 1px solid #222; }
-        input { flex: 1; background: #000; border: 1px solid #333; padding: 15px; color: #fff; outline: none; }
-        .send-btn { background: var(--p); color: #000; border: none; padding: 0 30px; font-weight: 900; cursor: pointer; }
+        /* Main Grid */
+        .main-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 30px; margin-bottom: 60px; }
+        .benefits { display: flex; flex-direction: column; gap: 20px; }
+        .b-card { background: #050505; border: 1px solid #111; padding: 25px; border-left: 4px solid var(--p); }
+        .b-card h3 { color: var(--p); margin-bottom: 10px; font-size: 1.3rem; }
 
-        /* ПРЕИМУЩЕСТВА */
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 100px; }
-        .card { border-top: 2px solid #222; padding-top: 30px; transition: 0.3s; }
-        .card:hover { border-top-color: var(--p); }
-        .card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--p); }
-        .card p { color: #666; font-size: 1rem; line-height: 1.6; }
+        /* Chat Diagnostic */
+        .chat-box { background: #000; border: 1px solid #333; display: flex; flex-direction: column; height: 450px; border-radius: 4px; overflow: hidden; }
+        #chat-log { flex: 1; padding: 25px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
+        .m { padding: 15px 20px; border-radius: 2px; max-width: 85%; font-size: 1rem; line-height: 1.4; }
+        .m-ai { background: #111; border: 1px solid #222; align-self: flex-start; border-left: 4px solid var(--p); }
+        .m-user { background: var(--p); color: #000; align-self: flex-end; font-weight: 700; }
 
-        /* FOOTER */
-        .cta-final { text-align: center; padding: 120px 0; border-top: 1px solid #222; }
-        .cta-final h2 { font-size: clamp(2rem, 6vw, 4rem); margin-bottom: 40px; }
-        .phone-link { font-size: clamp(3rem, 12vw, 7rem); font-weight: 900; color: #fff; text-decoration: none; transition: 0.3s; }
-        .phone-link:hover { color: var(--p); text-shadow: 0 0 50px rgba(255,95,0,0.5); }
+        .chat-input { display: flex; border-top: 1px solid #333; }
+        .chat-input input { flex: 1; background: transparent; border: none; padding: 20px; color: #fff; outline: none; font-size: 1.1rem; }
+        .chat-input button { background: var(--p); color: #000; border: none; padding: 0 40px; font-weight: 900; cursor: pointer; text-transform: uppercase; }
 
-        /* Мобильный плавающий номер */
-        .float-call { position: fixed; bottom: 30px; right: 30px; background: var(--p); width: 70px; height: 70px; border-radius: 50%; display: none; align-items: center; justify-content: center; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        
+        /* CTA */
+        .final-cta { text-align: center; padding: 100px 0; background: radial-gradient(circle at center, #111 0%, #000 100%); border-top: 1px solid #222; }
+        .final-cta h2 { font-size: 3rem; margin-bottom: 30px; }
+        .btn-call { display: inline-block; background: var(--p); color: #000; padding: 25px 60px; font-size: 2rem; font-weight: 900; text-decoration: none; border-radius: 4px; transition: 0.3s; box-shadow: 0 0 30px rgba(255,95,0,0.3); }
+        .btn-call:hover { transform: translateY(-5px); box-shadow: 0 10px 40px rgba(255,95,0,0.5); }
+
+        /* Sticky Mobile Call */
+        .mobile-sticky { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--p); color: #000; padding: 18px; text-align: center; font-weight: 900; font-size: 1.4rem; z-index: 2000; text-decoration: none; display: none; }
+
         @media (max-width: 900px) {
-            .ai-grid, .grid { grid-template-columns: 1fr; }
-            .float-call { display: flex; }
-            .hero h1 { letter-spacing: -3px; }
+            .main-grid { grid-template-columns: 1fr; }
+            .mobile-sticky { display: block; }
+            body { padding-bottom: 60px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="ticker">
-        <div class="ticker-wrap">
-            +++ STATUS: LAB WROCŁAW ONLINE +++ NOWA NAPRAWA: FRONIUS SYMO (KRZYKI) +++ CZAS REALIZACJI: 24H +++ ZADZWOŃ: 512 792 248 +++
+<div class="container">
+    <nav>
+        <a href="https://fixvolt.pl" class="logo">FIX<span>VOLT</span></a>
+        <div class="top-contact">
+            <small style="display:block; color:#444;">WROCŁAW / CAŁA POLSKA</small>
+            <a href="tel:+48512792248">512 792 248</a>
         </div>
+    </nav>
+
+    <div class="live-panel">
+        <div class="stat-item"><span id="stat-1">14</span><small>Dziś naprawiono</small></div>
+        <div class="stat-item"><span id="stat-2">2</span><small>Wolne terminy</small></div>
+        <div class="stat-item"><span>12 m-cy</span><small>Gwarancji</small></div>
+        <div class="stat-item"><span>24h</span><small>Ekspres diagnoza</small></div>
     </div>
 
+    <header class="hero">
+        <h1>NAPRAWIAMY <span>NIEODWRACALNE</span></h1>
+        <p>Specjalistyczny serwis inwerterów PV i automatyki HVAC. Gdy inni mówią "wymiana", my mówimy "naprawa". fixvolt.pl - Twoja technologia, nasza pasja.</p>
+    </header>
+
+    <div class="main-grid">
+        <div class="benefits">
+            <div class="b-card">
+                <h3>Oszczędność</h3>
+                <p>Naprawa płyty głównej to koszt rzędu 20-30% ceny nowej części. Oszczędzasz tysiące złotych.</p>
+            </div>
+            <div class="b-card">
+                <h3>Precyzja</h3>
+                <p>Używamy mikroskopów i profesjonalnych stacji lutowniczych BGA. Żadnej prowizorki.</p>
+            </div>
+            <div class="b-card">
+                <h3>Części</h3>
+                <p>Własny magazyn komponentów do marek: Fronius, Viessmann, Vaillant, Huawei, SMA.</p>
+            </div>
+        </div>
+        <div class="chat-box">
+            <div id="chat-log">
+                <div class="m m-ai">Witaj w systemie FIXVOLT. Podaj kod błędu lub model urządzenia (np. Fronius błąd 103).</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chat-in" placeholder="Wpisz kod błędu..." autocomplete="off">
+                <button onclick="handle()">START</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="final-cta">
     <div class="container">
-        <nav>
-            <a href="https://fixvolt.pl" class="logo">FIX<span>VOLT</span></a>
-            <a href="tel:+48512792248" class="nav-call">ZADZWOŃ</a>
-        </nav>
-
-        <header class="hero">
-            <h1><span>NAPRAWA</span><br>ELEKTRONIKI</h1>
-            <p>Nie jesteśmy zwykłym serwisem. Jesteśmy laboratorium inżynieryjnym. Ratujemy inwertery, płyty kotłów i automatykę przemysłową we Wrocławiu. Szybko. Skutecznie. fixvolt.pl</p>
-        </header>
-
-        <section class="ai-grid">
-            <div class="ai-sidebar">
-                <h2>DIAGNOZA AI</h2>
-                <p style="color:#888; margin-bottom:30px;">Nasz system przeanalizuje Twoją usterkę w czasie rzeczywistym.</p>
-                <ul>
-                    <li>Wstępna wycena naprawy</li>
-                    <li>Dostępność części zamiennych</li>
-                    <li>Rezerwacja ekspresowego terminu</li>
-                </ul>
-                <div id="live-status" style="margin-top:40px; font-family:monospace; color:var(--p);">CORE_LOAD: 87% | ACTIVE</div>
-            </div>
-            <div class="chat-container">
-                <div id="chat-flow">
-                    <div class="msg msg-ai">Witaj w terminalu FIXVOLT. Podaj model urządzenia lub kod błędu, aby rozpocząć proces naprawy.</div>
-                </div>
-                <div class="chat-input">
-                    <input type="text" id="user-msg" placeholder="Wpisz np. Fronius 103 lub Viessmann F4..." autocomplete="off">
-                    <button class="send-btn" onclick="handle()">START</button>
-                </div>
-            </div>
-        </section>
-
-        <div class="grid">
-            <div class="card">
-                <h3>Inwertery PV</h3>
-                <p>Serwis falowników fotowoltaicznych wszystkich marek. Naprawa modułów IGBT, zasilaczy i kart komunikacji.</p>
-            </div>
-            <div class="card">
-                <h3>Automatyka HVAC</h3>
-                <p>Profesjonalna regeneracja płyt głównych kotłów gazowych i pomp ciepła. Viessmann, Vaillant, Buderus, Vaillant.</p>
-            </div>
-            <div class="card">
-                <h3>Ekspertyza L3</h3>
-                <p>Mikrolutowanie, wymiana układów BGA i programowanie mikrokontrolerów w zaawansowanej automatyce.</p>
-            </div>
-        </div>
-
-        <div class="cta-final">
-            <h2>MASZ AWARIĘ? DZWOŃ:</h2>
-            <a href="tel:+48512792248" class="phone-link">512 792 248</a>
-        </div>
+        <h2>POTRZEBUJESZ POMOCY TERAZ?</h2>
+        <a href="tel:+48512792248" class="btn-call">ZADZWOŃ: 512 792 248</a>
+        <p style="margin-top:40px; color:#555;">FIXVOLT.PL | WROCŁAW | EKSPERT W TWOIM ZASIĘGU</p>
     </div>
+</div>
 
-    <a href="tel:+48512792248" class="float-call">📞</a>
+<a href="tel:+48512792248" class="mobile-sticky">📞 ZADZWOŃ: 512 792 248</a>
 
-    <div style="display:none;">
-        Naprawa inwerterów Wrocław, serwis inwerterów fotowoltaicznych, naprawa płyt głównych kotłów, serwis Viessmann Wrocław, Vaillant błąd F28, Fronius błąd 103, fixvolt.pl.
-    </div>
+<script>
+    const log = document.getElementById('chat-log');
+    const input = document.getElementById('chat-in');
 
-    <script>
-        const flow = document.getElementById('chat-flow');
-        const input = document.getElementById('user-msg');
-        let state = 0;
+    function add(t, ai = true) {
+        const d = document.createElement('div');
+        d.className = `m ${ai ? 'm-ai' : 'm-user'}`;
+        d.innerText = t;
+        log.appendChild(d);
+        log.scrollTop = log.scrollHeight;
+    }
 
-        function add(t, ai = true) {
-            const m = document.createElement('div');
-            m.className = `msg ${ai ? 'msg-ai' : 'msg-user'}`;
-            m.innerText = t;
-            flow.appendChild(m);
-            flow.scrollTop = flow.scrollHeight;
-        }
+    function handle() {
+        const v = input.value.trim();
+        if(!v) return;
+        add(v, false);
+        input.value = "";
+        setTimeout(() => {
+            add("SYSTEM: Wykryto prawdopodobne uszkodzenie modułu mocy lub logiki sterującej. Naprawa jest możliwa w naszym laboratorium we Wrocławiu.");
+            add("Skontaktuj się z inżynierem pod numerem 512 792 248 w celu rezerwacji terminu.");
+        }, 600);
+    }
 
-        function handle() {
-            const v = input.value.trim();
-            if(!v) return;
-            add(v, false);
-            input.value = "";
+    input.addEventListener("keypress", (e) => { if(e.key === "Enter") handle(); });
 
-            setTimeout(() => {
-                if(state === 0) {
-                    add("SYSTEM: Wykryto usterkę krytyczną. Diagnoza wskazuje na uszkodzenie sekcji zasilania lub logiki. Możliwość naprawy: 95%.");
-                    add("Zadzwoń teraz pod 512 792 248, aby zarezerwować części i otrzymać gwarancję ceny.");
-                    state = 1;
-                } else {
-                    add("PRZYJĘTO: Twój zgłoszenie ma priorytet. Czekamy na kontakt telefoniczny: 512 792 248.");
-                }
-            }, 800);
-        }
+    // Динамика цифр для доверия
+    setInterval(() => {
+        let s = document.getElementById('stat-1');
+        s.innerText = parseInt(s.innerText) + Math.floor(Math.random()*2);
+    }, 300000);
+</script>
 
-        input.addEventListener("keypress", (e) => { if(e.key === "Enter") handle(); });
-
-        // Динамический статус
-        setInterval(() => {
-            document.getElementById('live-status').innerText = `CORE_LOAD: ${Math.floor(Math.random()*15)+80}% | NODE_WROC: ACTIVE`;
-        }, 4000);
-    </script>
 </body>
 </html>
