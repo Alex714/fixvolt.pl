@@ -3,160 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIXVOLT | Engineering Intelligence & Global Database</title>
+    <title>FIXVOLT | Digital Administrative Core</title>
     <style>
         :root {
             --primary: #ff5f00;
-            --secondary: #0047ff;
-            --bg: #ffffff;
-            --text: #0e0e0e;
-            --border: #d1d1d1;
+            --bg: #0c0c0c;
+            --panel: #141414;
+            --text: #e0e0e0;
+            --border: #222;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Helvetica, sans-serif; }
-        body { background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, sans-serif; }
+        body { background: var(--bg); color: var(--text); line-height: 1.6; }
 
-        .container { max-width: 1400px; margin: 0 auto; padding: 0 50px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 
         /* Navigation */
-        nav { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--text); }
-        .brand { font-size: 1.8rem; font-weight: 900; letter-spacing: -1.5px; text-transform: uppercase; }
-        .brand span { color: var(--primary); }
-        .stats-bar { font-family: monospace; font-size: 0.75rem; color: #666; display: flex; gap: 20px; }
+        nav { padding: 30px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.4rem; font-weight: 900; letter-spacing: -1px; text-transform: uppercase; color: #fff; text-decoration: none; }
+        .logo span { color: var(--primary); }
+        .system-status { font-family: monospace; font-size: 0.7rem; color: #555; }
 
-        /* Header / Experience Section */
-        header { padding: 100px 0 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
-        h1 { font-size: 5rem; font-weight: 900; line-height: 0.85; letter-spacing: -4px; }
-        .experience-box { border-left: 5px solid var(--primary); padding-left: 30px; }
-        .experience-box p { font-size: 1.1rem; color: #444; margin-bottom: 20px; }
-        .db-badge { display: inline-block; background: #000; color: #fff; padding: 5px 12px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; }
-
-        /* AI Expert System - Global Intelligence */
-        .ai-engine {
-            background: #f8f8f8; border: 1px solid var(--border); padding: 60px;
-            margin-bottom: 100px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px;
+        /* AI Admin Section */
+        .admin-wrap {
+            display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; margin: 60px 0; min-height: 550px;
         }
-        .ai-info h2 { font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 20px; }
-        .ai-info ul { list-style: none; color: #666; font-size: 0.9rem; }
-        .ai-info li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .ai-info li::before { content: "✓"; color: var(--primary); font-weight: bold; }
 
-        .terminal { background: #fff; border: 2px solid #000; padding: 40px; box-shadow: 10px 10px 0 #000; }
-        #output { font-family: monospace; font-size: 1rem; color: #000; min-height: 150px; line-height: 1.6; }
-        .input-group { display: flex; margin-top: 30px; border: 2px solid #000; }
-        input { flex: 1; border: none; padding: 15px; font-size: 1.1rem; outline: none; background: #fff; }
-        .btn { background: #000; color: #fff; border: none; padding: 0 30px; font-weight: bold; cursor: pointer; transition: 0.2s; }
-        .btn:hover { background: var(--primary); }
+        /* Информационная панель */
+        .admin-info { padding: 40px; background: var(--panel); border-radius: 4px; border-left: 4px solid var(--primary); }
+        .admin-info h1 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 20px; color: #fff; }
+        .admin-info p { font-size: 1rem; color: #888; margin-bottom: 25px; }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stat-item { background: #000; padding: 15px; border-radius: 4px; border: 1px solid var(--border); }
+        .stat-label { display: block; font-size: 0.65rem; color: var(--primary); text-transform: uppercase; margin-bottom: 5px; }
+        .stat-val { font-size: 1rem; font-weight: bold; font-family: monospace; }
 
-        /* Tech Services with Diagrams */
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); margin-bottom: 100px; border: 1px solid var(--border); }
-        .card { background: #fff; padding: 50px 40px; }
-        .card h3 { font-size: 1.3rem; margin-bottom: 15px; text-transform: uppercase; }
-        .card p { color: #555; font-size: 0.95rem; margin-bottom: 30px; }
-        .dia { width: 100%; height: 60px; stroke: #000; fill: none; opacity: 0.2; }
-
-        footer { padding: 60px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 0.8rem; color: #999; }
-
-        @media (max-width: 1024px) {
-            header, .ai-engine, .grid { grid-template-columns: 1fr; gap: 40px; }
-            h1 { font-size: 3.5rem; }
+        /* Чат-интерфейс Администратора */
+        .chat-container {
+            background: #1a1a1a; border: 1px solid var(--border); border-radius: 4px; display: flex; flex-direction: column; overflow: hidden;
         }
+        .chat-header { background: #222; padding: 15px 25px; font-size: 0.8rem; font-weight: bold; display: flex; justify-content: space-between; }
+        .chat-body { flex: 1; padding: 25px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; font-size: 0.95rem; }
+        
+        .msg { max-width: 85%; padding: 12px 18px; border-radius: 2px; position: relative; }
+        .msg-ai { background: #333; align-self: flex-start; border-left: 3px solid var(--primary); color: #fff; }
+        .msg-user { background: var(--primary); color: #000; align-self: flex-end; font-weight: 500; }
+
+        .chat-footer { padding: 20px; background: #141414; border-top: 1px solid var(--border); display: flex; gap: 10px; }
+        input { flex: 1; background: #000; border: 1px solid var(--border); padding: 12px 15px; color: #fff; outline: none; }
+        input:focus { border-color: var(--primary); }
+        .send-btn { background: var(--primary); border: none; padding: 0 25px; color: #000; font-weight: 900; cursor: pointer; text-transform: uppercase; font-size: 0.8rem; }
+
+        footer { padding: 40px 0; border-top: 1px solid var(--border); color: #444; font-size: 0.75rem; text-align: center; }
+
+        @media (max-width: 900px) { .admin-wrap { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <div class="container">
     <nav>
-        <div class="brand">FIX<span>VOLT</span></div>
-        <div class="stats-bar">
-            <span>DB_GLOBAL_POLL: ACTIVE</span>
-            <span>EXPERIENCE_NODES: 300M+</span>
-            <span>LAB_STATUS: WROCŁAW_ONLINE</span>
-        </div>
+        <a href="#" class="logo">FIX<span>VOLT</span>.ADMIN</a>
+        <div class="system-status">LAB_WROC_51.10 // SECURE_NODE_ACTIVE</div>
     </nav>
 
-    <header>
-        <h1>GLOBAL<br>DATABASE<br>LOCAL<span>.</span><br>SERVICE</h1>
-        <div class="experience-box">
-            <span class="db-badge">ENGINEERING INSIGHTS</span>
-            <p>Łączymy precyzję wrocławskiego laboratorium z globalną bazą wiedzy technicznej. Analizujemy wzorce uszkodzeń na podstawie milionów przypadków z największych platform inżynieryjnych.</p>
-            <p style="font-weight: bold;">Naprawiamy inwertery, automatykę HVAC i moduły przemysłowe w oparciu o sprawdzone algorytmy.</p>
-        </div>
-    </header>
-
-    <section class="ai-engine">
-        <div class="ai-info">
-            <h2>Ekspert AI</h2>
-            <ul>
-                <li>Dostęp do schematów i typowych usterek (Drom/Spec-RU)</li>
-                <li>Analiza korelacji błędów procesorów MCU</li>
-                <li>Baza rozwiązań dla inwerterów PV i automatyki HVAC</li>
-            </ul>
-            <p style="margin-top: 20px; font-size: 0.8rem; color: #888;">*System korzysta z zagregowanych danych technicznych społeczności inżynieryjnych.</p>
-        </div>
-        <div class="terminal">
-            <div id="output">_Oczekiwanie na zapytanie... Wprowadź model lub kod błędu (np. Viessmann F4, Fronius 103, BMS Error).</div>
-            <div class="input-group">
-                <input type="text" id="input" placeholder="Wpisz kod błędu..." autocomplete="off">
-                <button class="btn" onclick="analyze()">ANALYZE</button>
+    <div class="admin-wrap">
+        <aside class="admin-info">
+            <h1>Expert Support Center</h1>
+            <p>Nasz cyfrowy administrator analizuje usterki w oparciu o globalne bazy danych (300M+ wpisów) i przygotowuje proces przyjęcia sprzętu do laboratorium.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item"><span class="stat-label">Baza Wiedzy</span><span class="stat-val">ZINTEGROWANA</span></div>
+                <div class="stat-item"><span class="stat-label">Czas Reakcji</span><span class="stat-val">NATYCHMIAST</span></div>
+                <div class="stat-item"><span class="stat-label">Lokalizacja</span><span class="stat-val">WROCŁAW</span></div>
+                <div class="stat-item"><span class="stat-label">Poziom Lab</span><span class="stat-val">LEVEL 3</span></div>
             </div>
-        </div>
-    </section>
+        </aside>
 
-    <div class="grid">
-        <div class="card">
-            <h3>Automatyka Domowa</h3>
-            <p>Płyty kotłów i pomp ciepła. Diagnostyka na poziomie komponentów.</p>
-            <svg class="dia" viewBox="0 0 100 20"><path d="M0 10 H30 L40 0 L60 20 L70 10 H100" stroke-width="1"/></svg>
-        </div>
-        <div class="card">
-            <h3>Energetyka / PV</h3>
-            <p>Serwis inwerterów i systemów BMS. Wykorzystanie baz doświadczeń polowych.</p>
-            <svg class="dia" viewBox="0 0 100 20"><rect x="10" y="5" width="20" height="10" stroke-width="1"/><path d="M30 10 H70" stroke-width="1"/><rect x="70" y="5" width="20" height="10" stroke-width="1"/></svg>
-        </div>
-        <div class="card">
-            <h3>Industrial L3</h3>
-            <p>Mikrolutowanie BGA/MCU. Odzyskiwanie danych i logiki sterowników.</p>
-            <svg class="dia" viewBox="0 0 100 20"><circle cx="20" cy="10" r="5" stroke-width="1"/><circle cx="50" cy="10" r="5" stroke-width="1"/><circle cx="80" cy="10" r="5" stroke-width="1"/></svg>
-        </div>
+        <section class="chat-container">
+            <div class="chat-header">
+                <span>FIXVOLT AI_ADMIN v4.1</span>
+                <span style="color: var(--primary)">● ONLINE</span>
+            </div>
+            <div class="chat-body" id="chat-box">
+                <div class="msg msg-ai">Dzień dobry. Jestem administratorem technicznym Fixvolt. W czym mogę pomóc? Podaj model urządzenia lub kod błędu.</div>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="user-input" placeholder="Wpisz wiadomość..." autocomplete="off">
+                <button class="send-btn" onclick="handleInput()">Wyślij</button>
+            </div>
+        </section>
     </div>
 
     <footer>
-        <div>FIXVOLT.PL // LAB-ID: WRO-714</div>
-        <div>Wrocław, Polska // Global Engineering Data Integrated</div>
+        &copy; 2026 FIXVOLT.PL | PRECISION ENGINEERING SOLUTIONS | WROCŁAW, POLSKA
     </footer>
 </div>
 
 <script>
-    const output = document.getElementById('output');
-    const input = document.getElementById('input');
+    const chatBox = document.getElementById('chat-box');
+    const userInput = document.getElementById('user-input');
 
-    // База данных, интегрирующая "опыт миллионов" и типичные решения
-    const globalDB = {
-        "f4": "INSIGHT: Błąd zapłonu. Statystyki baz serwisowych wskazują na 85% prawdopodobieństwo uszkodzenia przekaźnika K1 lub transformatora zapłonowego na płycie głównej. Zalecana weryfikacja napięcia na pinie 7.",
-        "f28": "INSIGHT: Błąd komunikacji gazowej. Rozwiązanie z baz technicznych: utrata pojemności kondensatorów elektrolitycznych 100uF/35V w sekcji zasilania niskonapięciowego.",
-        "103": "INSIGHT: Inwerter - błąd stopnia mocy. Dane wskazują na przebicie tranzystorów IGBT (seria IXGH). Wymagana wymiana wraz z układami sterującymi (optodriverami).",
-        "bms": "INSIGHT: Błąd balansu ogniw. Typowa usterka układu monitorującego (IC). Rozwiązanie: przelutowanie lub wymiana kontrolera sekcji.",
-        "e01": "INSIGHT: Błąd jonizacji. Wg doświadczeń serwisowych najczęstszą przyczyną jest upływność prądu na ścieżce pomiarowej procesora MCU. Wymagana izolacja obwodu."
+    let step = 0; 
+    let orderData = { device: "", problem: "", contact: "" };
+
+    const knowledgeBase = {
+        "f4": "Analiza wskazuje na błąd zapłonu Viessmann (częsta usterka przekaźnika). Naprawa w naszym lab trwa zazwyczaj 1 dzień roboczy.",
+        "f28": "Błąd komunikacji Vaillant. Statystyki z baz globalnych sugerują uszkodzenie sekcji zasilania logiki. Możemy to naprawić od ręki.",
+        "inwerter": "Problem z inwerterem. Nasze dane wskazują na usterkę modułu mocy IGBT. Wymagana diagnoza stacjonarna we Wrocławiu.",
+        "e01": "Błąd jonizacji. Wymagana weryfikacja obwodu pomiarowego na płycie głównej."
     };
 
-    function analyze() {
-        const val = input.value.toLowerCase().trim();
-        if(!val) return;
+    function addMessage(text, isAi = true) {
+        const div = document.createElement('div');
+        div.className = `msg ${isAi ? 'msg-ai' : 'msg-user'}`;
+        div.innerText = text;
+        chatBox.appendChild(div);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
 
-        output.innerHTML = "_System przeszukuje globalne bazy danych... Analiza wzorców uszkodzeń...";
-        
+    function handleInput() {
+        const text = userInput.value.trim();
+        if (!text) return;
+
+        addMessage(text, false);
+        userInput.value = "";
+
         setTimeout(() => {
-            let res = "RESULT: Kod błędu nietypowy. Wymagana manualna analiza schematu w laboratorium we Wrocławiu. Prosimy o kontakt: +48 XXX XXX XXX.";
-            for(let key in globalDB) {
-                if(val.includes(key)) { res = globalDB[key]; break; }
-            }
-            output.innerHTML = `<span style="color:var(--primary); font-weight:bold;">> ${res}</span>`;
-            input.value = "";
+            processLogic(text.toLowerCase());
         }, 600);
     }
 
-    input.addEventListener("keypress", (e) => { if(e.key === "Enter") analyze(); });
+    function processLogic(text) {
+        if (step === 0) {
+            let found = false;
+            for (let key in knowledgeBase) {
+                if (text.includes(key)) {
+                    addMessage(knowledgeBase[key]);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) addMessage("Rozumiem. Przyjmuję zgłoszenie do analizy inżynierskiej.");
+            
+            orderData.problem = text;
+            addMessage("Aby zarezerwować termin w naszym laboratorium we Wrocławiu, proszę podać model urządzenia (np. Viessmann Vitodens 100).");
+            step = 1;
+        } 
+        else if (step === 1) {
+            orderData.device = text;
+            addMessage("Przyjęto: " + text.toUpperCase() + ". Ostatni krok: proszę zostawić numer telefonu lub e-mail. Nasz inżynier skontaktuje się w ciągu 30 minut.");
+            step = 2;
+        } 
+        else if (step === 2) {
+            orderData.contact = text;
+            addMessage("Dziękuję! Dane zostały przesłane do systemu FIXVOLT CORE. Numer zgłoszenia: #" + Math.floor(Math.random()*9000 + 1000));
+            addMessage("Administrator zakończył zbieranie danych. Możesz teraz do nas zadzwonić bezpośrednio: +48 XXX XXX XXX.");
+            step = 3;
+            console.log("Zgłoszenie:", orderData); // Здесь можно отправить данные на почту или API
+        }
+    }
+
+    userInput.addEventListener("keypress", (e) => { if (e.key === "Enter") handleInput(); });
 </script>
 
 </body>
