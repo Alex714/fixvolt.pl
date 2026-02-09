@@ -3,137 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIXVOLT | Specjalistyczny Serwis Elektroniki Wrocław</title>
+    <title>FIXVOLT | Profesjonalna Naprawa Elektroniki Mocy Wrocław</title>
+    <meta name="description" content="Ekspercki serwis komponentowy: naprawa falowników PV (Fronius, Huawei, SMA), pomp ciepła i automatyki. Najwyższa skuteczność we Wrocławiu.">
+    
     <style>
-        :root { --p: #ff5f00; --bg: #050505; --s: #111; --t: #fff; }
+        :root { --p: #ff5f00; --bg: #000; }
         * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg); color: #fff; line-height: 1; overflow-x: hidden; }
         
-        body { 
-            background: var(--bg); 
-            color: var(--t); 
-            line-height: 1;
-            overflow-x: hidden;
-        }
-
-        /* Техно-фон с сеткой и градиентом */
+        /* Grid Background */
         body::before { 
             content: ""; position: fixed; inset: 0; 
-            background: 
-                radial-gradient(circle at 50% 50%, rgba(255, 95, 0, 0.05) 0%, transparent 80%),
-                radial-gradient(#1a1a1a 1px, transparent 1px); 
-            background-size: 100% 100%, 40px 40px; z-index: -1; 
+            background: radial-gradient(#1a1a1a 1px, transparent 0); 
+            background-size: 40px 40px; z-index: -1; 
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
-
-        /* Шапка с эффектом интерфейса */
-        nav { 
-            padding: 40px 0; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: flex-start;
-            border-bottom: 1px solid #222;
-        }
-        .logo { font-size: 3rem; font-weight: 900; letter-spacing: -3px; text-decoration: none; color: #fff; line-height: 0.8; }
-        .logo span { color: var(--p); display: block; font-size: 1.2rem; letter-spacing: 5px; margin-top: 5px; }
-
-        .sys-info { text-align: right; font-family: monospace; font-size: 0.65rem; color: #444; text-transform: uppercase; letter-spacing: 2px; }
-        .sys-info b { color: #2ecc71; }
-
-        /* Главный экран */
-        .hero { padding: 100px 0 60px; position: relative; }
-        .hero::after { content: "ENG_V.26.0"; position: absolute; top: 100px; right: 0; font-family: monospace; font-size: 0.7rem; color: #1a1a1a; transform: rotate(90deg); }
-
-        h1 { font-size: clamp(3.5rem, 15vw, 9rem); font-weight: 900; text-transform: uppercase; letter-spacing: -6px; line-height: 0.8; margin-bottom: 40px; }
-        h1 i { color: var(--p); font-style: normal; }
-
-        .meta-desc { font-size: 1.4rem; color: #666; max-width: 650px; line-height: 1.3; margin-bottom: 60px; font-weight: 300; }
-        .meta-desc b { color: #fff; font-weight: 700; }
-
-        /* Блок звонка - Мощный акцент */
-        .phone-wrap { 
-            background: var(--p); 
-            padding: 60px 40px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center;
-            position: relative;
-            transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-            text-decoration: none;
-            color: #000;
-        }
-        .phone-wrap:hover { background: #fff; transform: translateY(-5px); }
-        .phone-wrap .label { font-size: 0.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 15px; }
-        .phone-number { font-size: clamp(3rem, 12vw, 7rem); font-weight: 900; letter-spacing: -4px; line-height: 1; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
         
-        /* Сетка услуг */
-        .specs { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 2px; 
-            background: #222; 
-            margin: 80px 0;
-            border: 1px solid #222;
-        }
-        .spec-card { background: var(--bg); padding: 50px; transition: 0.3s; }
-        .spec-card:hover { background: var(--s); }
-        .spec-card h3 { font-size: 0.75rem; color: var(--p); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 25px; }
-        .spec-card p { font-size: 1.1rem; color: #888; line-height: 1.4; }
+        header { padding: 40px 0; border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 2.5rem; font-weight: 900; letter-spacing: -2px; color: #fff; text-decoration: none; }
+        .logo span { color: var(--p); }
 
-        footer { 
-            padding: 80px 0 40px; 
-            display: flex; 
-            justify-content: space-between; 
-            border-top: 1px solid #111;
-            font-size: 0.7rem; 
-            color: #222; 
-            font-weight: 900; 
-            text-transform: uppercase;
+        .main { padding: 100px 0; }
+        h1 { font-size: clamp(3.5rem, 15vw, 9rem); font-weight: 900; text-transform: uppercase; letter-spacing: -6px; line-height: 0.8; margin-bottom: 40px; }
+        h1 b { color: var(--p); font-style: normal; }
+
+        .cta-button { 
+            background: var(--p); color: #000; padding: 50px 20px; 
+            display: block; text-align: center; text-decoration: none; 
+            border-radius: 4px; transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
         }
+        .cta-button:hover { background: #fff; transform: translateY(-5px); }
+        .cta-button span { font-size: 0.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 15px; }
+        .cta-button strong { font-size: clamp(2.5rem, 12vw, 6rem); display: block; font-weight: 900; letter-spacing: -3px; }
+
+        .ai-labels { display: flex; gap: 10px; margin-top: 40px; flex-wrap: wrap; }
+        .label { font-size: 0.65rem; color: #333; border: 1px solid #1a1a1a; padding: 5px 12px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+
+        footer { padding: 80px 0 40px; border-top: 1px solid #111; color: #222; font-size: 0.7rem; font-weight: 900; text-align: center; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <nav>
+    <header>
         <a href="/" class="logo">FIX<span>VOLT</span></a>
-        <div class="sys-info">
-            WROCŁAW_UNIT_01<br>
-            STATUS: <b>OPERATIONAL</b>
-        </div>
-    </nav>
+        <div style="font-family: monospace; font-size: 0.7rem; color: #444; text-align: right;">UNIT_WRO_SYSTEM: ACTIVE</div>
+    </header>
 
-    <main class="hero">
-        <h1>NAPRAWA<i>.</i><br>ELEKTRONIKI</h1>
-        <p class="meta-desc">
-            Inżynierskie laboratorium <b>FIXVOLT</b>. Specjalistyczna regeneracja inwerterów PV, automatyki przemysłowej i modułów HVAC.
-        </p>
-
-        <a href="tel:+48512792248" class="phone-wrap">
-            <span class="label">Emergency Hotline</span>
-            <span class="phone-number">512 792 248</span>
-            <span style="font-size: 0.7rem; margin-top: 20px; font-weight: 900; letter-spacing: 2px;">KLIKNIJ, ABY POŁĄCZYĆ</span>
+    <div class="main">
+        <h1>NAPRAWA<b>.</b><br>ELEKTRONIKI</h1>
+        
+        <a href="tel:+48512792248" class="cta-button">
+            <span>Direct Technical Line</span>
+            <strong>512 792 248</strong>
         </a>
-    </main>
 
-    <div class="specs">
-        <div class="spec-card">
-            <h3>Solar Inverters</h3>
-            <p>Serwis komponentowy Fronius, Huawei, SMA, SolarEdge. Diagnostyka sekcji mocy i sterowania.</p>
-        </div>
-        <div class="spec-card">
-            <h3>HVAC Control</h3>
-            <p>Naprawa sterowników pomp ciepła i kotłów gazowych. Rozwiązania dla marek premium.</p>
-        </div>
-        <div class="spec-card">
-            <h3>Industrial</h3>
-            <p>Regeneracja zasilaczy przemysłowych, modułów PLC oraz paneli HMI.</p>
+        <div class="ai-labels">
+            <div class="label">Inwertery Fotowoltaiczne</div>
+            <div class="label">Płyty Główne HVAC</div>
+            <div class="label">Automatyka Przemysłowa</div>
+            <div class="label">Diagnostyka Komponentowa</div>
         </div>
     </div>
 
     <footer>
-        <span>FixVolt.pl // 2026</span>
-        <span>Electronic Engineering Lab</span>
+        FIXVOLT.PL // 2026 // WROCŁAW // ELECTRONIC ENGINEERING LABORATORY
     </footer>
 </div>
 
