@@ -4,248 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>FixVolt Wrocław | Serwis Inwerterów Deye, Huawei, Sofar | Naprawa Falowników</title>
-    <meta name="description" content="Profesjonalny serwis inwerterów i falowników we Wrocławiu. Naprawa Deye, Huawei, Sofar, Growatt na poziomie komponentów. Szybka diagnoza i gwarancja. Sokolnicza 7.">
-    <meta name="keywords" content="naprawa inwerterów Wrocław, serwis falowników, naprawa Deye, serwis Huawei Sun2000, błąd ISO falownik, naprawa hybrydowych inwerterów">
-    <link rel="canonical" href="https://fixvolt.pl/">
+    <title>Naprawa Inwerterów i Falowników | FixVolt Wrocław - Cała Polska</title>
+    <meta name="description" content="Profesjonalny serwis inwerterów fotowoltaicznych. Naprawiamy błędy F56, F47, ISO, 2062. Deye, Huawei, Sofar, Growatt. Serwis wysyłkowy - Cała Polska.">
     
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "FixVolt Serwis Elektroniki Mocy",
-      "image": "https://fixvolt.pl/logo.png",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Sokolnicza 7 lok. 17",
-        "addressLocality": "Wrocław",
-        "postalCode": "53-676",
-        "addressCountry": "PL"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 51.1121,
-        "longitude": 17.0235
-      },
-      "url": "https://fixvolt.pl",
-      "telephone": "+48605697548",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "09:00",
-          "closes": "17:00"
-        }
-      ],
-      "priceRange": "$$"
-    }
-    </script>
-
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        :root { 
-            --gold: #ffcc00; 
-            --gold-glow: rgba(255, 204, 0, 0.4);
-            --bg: #080808; 
-            --card-bg: rgba(20, 20, 20, 0.8); 
-            --text: #ffffff; 
-        }
-
-        body { 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            background: var(--bg); 
-            color: var(--text); 
-            line-height: 1.6;
-            background-image: radial-gradient(circle at 50% -20%, #1a1a10 0%, transparent 50%);
-        }
-
-        header { padding: 100px 20px 60px; text-align: center; }
-
-        .status-online {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-            border: 1px solid var(--gold);
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-        }
-
-        .brand { 
-            font-size: clamp(40px, 12vw, 95px); 
-            font-weight: 900; 
-            letter-spacing: -4px; 
-            margin: 0; 
-            text-transform: uppercase;
-            line-height: 0.9;
-        }
-
-        .tagline { 
-            font-family: 'JetBrains Mono', monospace;
-            font-size: clamp(14px, 2.5vw, 20px); 
-            color: var(--gold); 
-            margin-top: 15px; 
-            font-weight: 700;
-        }
+        :root { --gold: #ffcc00; --bg: #0a0a0a; --card: #141414; --text: #ffffff; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
+        
+        header { padding: 80px 20px; text-align: center; background: radial-gradient(circle at 50% 0%, #1a1a10 0%, transparent 75%); border-bottom: 1px solid #222; }
+        .ship-badge { font-family: 'JetBrains Mono', monospace; color: var(--gold); border: 1px solid var(--gold); padding: 5px 15px; font-size: 12px; border-radius: 50px; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .brand { font-size: clamp(40px, 10vw, 80px); font-weight: 900; letter-spacing: -3px; margin: 20px 0 0; }
+        .tagline { color: var(--gold); font-size: clamp(16px, 3vw, 24px); font-weight: 700; text-transform: uppercase; margin-bottom: 30px; }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 20px; 
-        }
-
-        .card { 
-            background: var(--card-bg); 
-            padding: 35px; 
-            border: 1px solid #222;
-            border-radius: 4px; /* Инженерный стиль — более острые углы */
-            transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
-            position: relative;
-        }
-
-        .card:hover { 
-            border-color: var(--gold);
-            background: #000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .card h3 { 
-            color: var(--gold); 
-            text-transform: uppercase; 
-            margin-top: 0; 
-            font-size: 20px; 
-            font-weight: 800;
-        }
-
-        .special-badge { 
-            background: #ff0000; 
-            color: #fff; 
-            font-size: 10px; 
-            padding: 2px 8px; 
-            font-weight: 900;
-            margin-left: 10px;
-            border-radius: 2px;
-        }
-
-        .cta-section { 
-            background: var(--gold); 
-            color: #000; 
-            padding: 80px 20px; 
-            text-align: center; 
-            margin: 60px 0;
-            clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%); /* Небольшой скос для стиля */
-        }
-
-        .main-btn { 
-            background: #000; 
-            color: var(--gold); 
-            padding: 25px 50px; 
-            font-size: clamp(20px, 5vw, 32px); 
-            font-weight: 900; 
-            text-decoration: none; 
-            display: inline-block; 
-            transition: 0.3s; 
-            box-shadow: 10px 10px 0px rgba(0,0,0,0.2);
-        }
-
-        .main-btn:hover { 
-            transform: translate(-3px, -3px);
-            box-shadow: 15px 15px 0px rgba(0,0,0,0.25);
-        }
-
-        footer { padding: 60px 20px; background: #050505; border-top: 1px solid #111; }
-
-        .footer-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 40px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            font-size: 14px;
-            color: #888;
-        }
-
-        .footer-item h4 { color: #fff; text-transform: uppercase; margin-bottom: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         
-        .seo-text {
-            font-size: 12px;
-            color: #333;
-            margin-top: 40px;
-            text-align: center;
-        }
+        .card { background: var(--card); padding: 40px; border: 1px solid #222; transition: 0.3s; }
+        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .card h3 { color: var(--gold); text-transform: uppercase; margin: 0 0 15px; font-size: 20px; }
+        .card p { color: #888; font-size: 15px; margin: 0; }
 
-        @media (max-width: 768px) {
-            .brand { font-size: 55px; }
-        }
+        /* Секция ошибок для Google (SEO) */
+        .error-section { background: #000; padding: 40px 0; border-top: 1px solid #111; }
+        .error-list { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #444; display: flex; wrap: wrap; gap: 10px; justify-content: center; max-width: 1000px; margin: 0 auto; opacity: 0.6; }
+
+        .cta-section { background: var(--gold); color: #000; padding: 80px 20px; text-align: center; margin: 40px 0; }
+        .main-btn { background: #000; color: var(--gold); padding: 22px 50px; font-size: 24px; font-weight: 900; text-decoration: none; display: inline-block; transition: 0.2s; }
+        .main-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+
+        footer { padding: 60px 20px; background: #000; border-top: 1px solid #222; font-size: 14px; color: #666; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .footer-item h4 { color: #fff; text-transform: uppercase; margin-bottom: 15px; }
     </style>
 </head>
-<body> 
+<body>
 
     <header>
-        <div class="status-online">Engineering Service Center</div>
+        <span class="ship-badge">🚚 Obsługa Wysyłkowa - Cała Polska</span>
         <h1 class="brand">FIXVOLT</h1>
-        <div class="tagline">NAPRAWA INWERTERÓW PV // WROCŁAW</div>
-        <p style="max-width: 650px; margin: 25px auto; color: #aaa; font-size: 18px;">
-            Specjalistyczny serwis falowników hybrydowych i sieciowych. <strong>Deye, Huawei, Sofar, Fronius</strong>. Sokolnicza 7, Wrocław.
-        </p>
-    </header> 
+        <div class="tagline">Profesjonalny Serwis Elektroniki Mocy</div>
+        <p style="color: #666; max-width: 600px; margin: 0 auto;">Naprawiamy to, co inni chcą wymieniać. Specjalistyczny serwis inwerterów PV dla klientów indywidualnych i firm instalacyjnych.</p>
+    </header>
 
-    <main class="container">
+    <div class="container">
         <div class="grid">
             <div class="card">
-                <h3>Naprawa Inwerterów</h3>
-                <p>Serwis komponentowy: wymiana modułów mocy IGBT, naprawa płyt głównych i układów sterowania. Skutecznie ratujemy falowniki po burzach и przepięciach.</p>
+                <h3>Obsługa Całej Polski</h3>
+                <p>Nie musisz być z Wrocławia. Wyślij swój falownik <strong>InPostem lub kurierem DPD</strong>. Diagnoza w 48h, szybka naprawa и odesłanie pod Twoje drzwi.</p>
             </div>
             <div class="card">
-                <h3>Błędy Izolacji ISO <span class="special-badge">PILNE</span></h3>
-                <p>Profesjonalne usuwanie błędów upływności doziemnej. Diagnostyka i naprawa w 48h dla klientów z Wrocławia i całej Polski (serwis wysyłkowy).</p>
+                <h3>Naprawa Deye / Sigen</h3>
+                <p>Usuwamy błędy <strong>F56, F47, F33</strong>. Konfigurujemy CT, rozwiązujemy problemy z BMS и Time of Use. Pełne wsparcie dla systemów hybrydowych.</p>
             </div>
             <div class="card">
-                <h3>Optymalizacja DEYE</h3>
-                <p>Konfiguracja CT, rozwiązywanie problemów z bateriami oraz błędy komunikacji BMS. Pełne wsparcie techniczne dla systemów hybrydowych.</p>
+                <h3>Huawei & Sofar Solar</h3>
+                <p>Specjaliści od błędów izolacji <strong>ISO (2062, 2064)</strong>. Naprawiamy moduлы mocy po burzach, przepięciach и zalaniach. Gwarancja na każdą usługę.</p>
             </div>
             <div class="card">
-                <h3>Serwis Huawei Sun2000</h3>
-                <p>Naprawa najpopularniejszych falowników na rynku. Wymiana komponentów, aktualizacje softu и przywracanie sprawności po awariach sieci.</p>
+                <h3>Naprawa na Komponentach</h3>
+                <p>Wymieniamy moduły IGBT, MOSFET и drivery. Oszczędzasz do 70% kosztów w porównaniu do wymiany całej płyty głównej u producenta.</p>
             </div>
             <div class="card">
-                <h3>Ekspertyza i Gwarancja</h3>
-                <p>Każde urządzenie testujemy pod obciążeniem. Wystawiamy pisemną gwarancję oraz faktury VAT. Profesjonalne podejście inżynierskie.</p>
+                <h3>Dla Firm PV</h3>
+                <p>Współpracujemy z firmami instalacyjnymi w całej Polsce. Oferujemy faktury VAT, stałe terminy i wsparcie techniczne dla Twoich klientów.</p>
             </div>
             <div class="card">
-                <h3>Logistyka Cała Polska</h3>
-                <p>Nie jesteś z Wrocławia? Wyślij inwerter kurierem lub do paczkomatu. Odbierzemy go, naprawimy i odeślemy pod same drzwi.</p>
+                <h3>Gwarancja Jakości</h3>
+                <p>Każdy inwerter przechodzi testy pod pełnym obciążeniem na stole probierczym. Otrzymujesz pisemną gwarancję i pełną dokumentację naprawy.</p>
             </div>
         </div>
-    </main> 
+    </div>
+
+    <div class="error-section">
+        <div class="error-list">
+            <span>Błąd F56 Deye</span> | <span>Błąd 2062 Huawei</span> | <span>ISO Low Resistance</span> | <span>Sofar ID01</span> | <span>Growatt Error 117</span> | <span>Fronius State 401</span> | <span>Naprawa po burzy</span> | <span>Wymiana IGBT inwerter</span> | <span>Serwis falowników Wrocław</span> | <span>Inpost serwis elektroniki</span>
+        </div>
+    </div>
 
     <section class="cta-section">
-        <h2 style="font-size: 2rem; margin-bottom: 30px;">POTRZEBNA SZYBKA NAPRAWA?</h2>
+        <h2>TWÓJ INWERTER STOI? URATUJEMY GO.</h2>
         <a href="tel:+48605697548" class="main-btn">ZADZWOŃ: 605 697 548</a>
-        <p style="margin-top: 30px; font-weight: 700; font-family: 'JetBrains Mono';">WROCŁAW, SOKOLNICZA 7 (CENTRUM)</p>
+        <div style="margin-top: 30px; font-weight: 800; font-family: 'JetBrains Mono';">WROCŁAW, SOKOLNICZA 7 | CAŁA POLSKA (WYSYŁKA)</div>
     </section>
 
     <footer>
         <div class="footer-grid">
             <div class="footer-item">
                 <h4>Kontakt</h4>
-                FixVolt Wrocław<br>
-                Pn - Pt: 09:00 - 17:00<br>
+                FixVolt Serwis<br>
                 Tel: 605 697 548<br>
-                Email: kontakt@fixvolt.pl
+                Email: kontakt@fixvolt.pl<br>
+                Pn - Pt: 09:00 - 17:00
             </div>
             <div class="footer-item">
-                <h4>Szybkie Linki</h4>
-                • Naprawa Deye Wrocław<br>
-                • Serwis Inwerterów Huawei<br>
-                • Błąd Izolacji Falownika
+                <h4>Lokalizacja</h4>
+                ul. Sokolnicza 7 lok. 17<br>
+                53-676 Wrocław<br>
+                (Budynek Macondo)
             </div>
             <div class="footer-item">
                 <h4>Dane Firmy</h4>
@@ -254,10 +112,10 @@
                 REGON: 932125378
             </div>
         </div>
-        <div class="seo-text">
-            Najlepszy serwis inwerterów we Wrocławiu. Profesjonalna naprawa falowników fotowoltaicznych Deye, Huawei, Sofar Solar.
+        <div style="text-align: center; margin-top: 50px; opacity: 0.3; font-family: 'JetBrains Mono'; font-size: 11px;">
+            SEO: Naprawa falowników Deye, Huawei, Sofar, Growatt, Fronius, Victron, SMA. Serwis wysyłkowy cała Polska: Warszawa, Kraków, Poznań, Gdańsk, Wrocław.
         </div>
-    </footer> 
+    </footer>
 
 </body>
 </html>
